@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Plateforme ARDI</title>
+
+</head>
+<body>
+    <header>
+        <!-- Contenu paramétrable du header -->
+        <div>Plateforme ARDI - ANR OBARDI</div>
+    </header>
+
+    
+    <div class="content">
+        <h1>ARDI</h1>
+        <form action="URL_DU_TRAITEMENT" method="get">
+            <input type="text" name="query" id="search" placeholder="Effectuez une recherche sur ARDI">
+            <!-- <input type="submit" value="Rechercher"> -->
+        </form>
+        <div class="icon-bar">
+            <!-- Exemple d'icônes, remplacez par vos propres images ou icônes -->
+            <img src="img/icons/icon_database.png" class="icon" style="width: 48px; height: auto;">
+            <a href="map.html">
+                <img src="img/icons/icon_map.png" class="icon" style="width: 48px; height: auto;">
+            </a>
+            <img src="img/icons/icon_dataviz.png" class="icon" style="width: 48px; height: auto;">
+            <img src="img/icons/icon_archives.png" class="icon" style="width: 48px; height: auto;">
+            <img src="img/icons/icon_projects.png" class="icon" style="width: 48px; height: auto;">
+            <img src="img/icons/icon_users.png" class="icon" style="width: 48px; height: auto;">
+
+        </div>
+    </div>
+    <footer>
+        <!-- Contenu paramétrable du footer -->
+        <div>© ANR Obardi 2023 </div>
+    </footer>
+</body>
+
+<script src="js/map_interaction.js"></script>
+
+<script type="module" src="lib/dist/dsfr.module.js"></script>
+<!-- <script src="dsfr/dist/dsfr.module.min.js"></script> -->
+<script src="lib/dist/dsfr.nomodule.js"></script>
+<!-- <script src="dsfr/dist/dsfr.nomodule.min.js"></script> -->
+
+</html>

@@ -1,0 +1,5 @@
+/* Styles pour la carte */
+#mapid {
+    height: calc(100% - 200px); /* Hauteur moins celle du header et footer */
+    width: 100%;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mapstyle.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <title>Plateforme ARDI</title>
+
+</head>
+<body>
+    <header>
+        <!-- Contenu paramétrable du header -->
+        <div>Plateforme ARDI - ANR OBARDI</div>
+    </header>
+
+    <nav>
+        <!-- Contenu de la barre de navigation -->
+
+        <form action="URL_DU_TRAITEMENT" method="get">
+            <input type="text" name="query" id="search" placeholder="Effectuez une recherche sur ARDI">
+            <!-- <input type="submit" value="Rechercher"> -->
+        </form>
+
+        <div class="icon-bar">
+            <!-- Exemple d'icônes, remplacez par vos propres images ou icônes -->
+            <img src="img/icons/icon_database.png" class="icon" style="width: 48px; height: auto;">
+            <a href="map.html">
+                <img src="img/icons/icon_map.png" class="icon" style="width: 48px; height: auto;">
+            </a>
+            <img src="img/icons/icon_dataviz.png" class="icon" style="width: 48px; height: auto;">
+            <img src="img/icons/icon_archives.png" class="icon" style="width: 48px; height: auto;">
+            <img src="img/icons/icon_projects.png" class="icon" style="width: 48px; height: auto;">
+            <img src="img/icons/icon_users.png" class="icon" style="width: 48px; height: auto;">
+
+        </div>
+
+        <!-- <a href="#home" style="color: white; margin-right: 15px;">Accueil</a>
+        <a href="#news" style="color: white; margin-right: 15px;">Nouvelles</a>
+        <a href="#contact" style="color: white;">Contact</a> -->
+        <!-- Ajoutez d'autres liens ou contenus ici -->
+    </nav>
+
+    <div id="mapid"></div> <!-- Div pour la carte Leaflet -->
+
+    <footer>
+        <!-- Contenu paramétrable du footer -->
+        <div>© ANR Obardi 2023 </div>
+    </footer>
+</body>
+
+<!-- Intégration du JavaScript de Leaflet -->
+
+<!-- <script>
+    // Initialisation de la carte
+    var mymap = L.map('mapid').setView([43.6, 1.433], 13); // Remplacez par vos coordonnées et niveau de zoom
+
+    // Ajout des tuiles à la carte
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(mymap);
+
+    // Vous pouvez ajouter d'autres fonctionnalités ici, comme des marqueurs, des popups, etc.
+</script> -->
+
+<script src="js/map_interaction.js"></script>
+<script type="module" src="lib/dist/dsfr.module.js"></script>
+<!-- <script src="dsfr/dist/dsfr.module.min.js"></script> -->
+<script src="lib/dist/dsfr.nomodule.js"></script>
+<!-- <script src="dsfr/dist/dsfr.nomodule.min.js"></script> -->
+
+</html>
