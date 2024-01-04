@@ -40,6 +40,27 @@ var Ehess_IGN_Cassini = L.tileLayer.wms('https://ws.sogefi-web.com/wms?', {
     attribution : 'EHESS/IGN/SOGEFI'
 });
 
+var Ehess_IGN_Cassini = L.tileLayer.wms('https://ws.sogefi-web.com/wms?', {
+    layers: 'Carte_Cassini',
+    maxZoom: 21,
+    attribution : 'EHESS/IGN/SOGEFI'
+});
+
+// const URL_TILE_SERVER = "http://127.0.0.1:8014/";
+const URL_TILE_SERVER = "https://tile.ptm.huma-num.fr/tiles/ark/";
+const URL_TILE_SERVER_SUB = "https://{s}.tile.ptm.huma-num.fr/tiles/ark/";
+const params = new URLSearchParams(document.location.search);
+const ark = params.get("ark");
+console.info(ark);
+
+let LesmontsPyrenees = L.tileLayer(URL_TILE_SERVER + '12148/' + 'btv1b105677234' + '/{z}/{x}/{y}.png', {
+    minNativeZoom: 4,
+    maxNativeZoom: 21,
+    minZoom: 4,
+    maxZoom: 21,
+    attribution: '&copy; Gallica / PTM - Galligeo'
+  })
+
 var baseLayers = {
     "Humanitarian" : OpenStreetMap_HOT,
     "Black" : OpenStreetMap_BLK,
@@ -48,6 +69,7 @@ var baseLayers = {
     "IGN Scan50 Histo" : IGN_Scan1950_Histo,
     "IGN Etat-Major 40" : IGN_EtatMajor40,
     "Carte de Cassini" : Ehess_IGN_Cassini,
+    "Les monts Pyr&eacute;n&eacute;es" : LesmontsPyrenees
 };
 
 let map = L.map('mapid', {

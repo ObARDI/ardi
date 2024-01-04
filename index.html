@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="fr">
 <head>
+    <meta charset="utf-8">
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -9,37 +11,49 @@
 </head>
 <body>
     <header>
-        <!-- Contenu paramétrable du header -->
-        <div>Plateforme ARDI - ANR OBARDI</div>
+       
+        <div id="logo-container">
+            <img src="img/logo_obardi.png" alt="Logo Obardi">
+        </div>
+
+        <div><h2></h2></div>
+
+        <div id="logo-container">
+            <img src="img/logo_anr.png" alt="Logo Obardi">
+        </div>
     </header>
 
     
     <div class="content">
-        <h1>ARDI</h1>
+        <h1>ARDI - Plateforme de données et visualisation</h1>
+        <h2>Plateforme d'interrogation et de visualisation de données</h2>
+        <br>
         <form action="URL_DU_TRAITEMENT" method="get">
             <input type="text" name="query" id="search" placeholder="Effectuez une recherche sur ARDI">
             <!-- <input type="submit" value="Rechercher"> -->
         </form>
         <div class="icon-bar">
             <!-- Exemple d'icônes, remplacez par vos propres images ou icônes -->
-            <img src="img/icons/icon_database.png" class="icon" style="width: 48px; height: auto;">
-            <a href="map.html">
-                <img src="img/icons/icon_map.png" class="icon" style="width: 48px; height: auto;">
-            </a>
-            <img src="img/icons/icon_dataviz.png" class="icon" style="width: 48px; height: auto;">
-            <img src="img/icons/icon_archives.png" class="icon" style="width: 48px; height: auto;">
-            <img src="img/icons/icon_projects.png" class="icon" style="width: 48px; height: auto;">
-            <img src="img/icons/icon_users.png" class="icon" style="width: 48px; height: auto;">
+            <img src="img/icons/icon_database.png" class="icon" id="buttonDatabase" style="width: 48px; height: auto;">
+            <!-- <a href="action.html"> -->
+            <img src="img/icons/icon_map.png" class="icon" id="buttonMap" style="width: 48px; height: auto;">
+            <!-- </a> -->
+            <img src="img/icons/icon_dataviz.png" class="icon" id="buttonDatavis" style="width: 48px; height: auto;">
+            <img src="img/icons/icon_archives.png" class="icon" id="buttonArchives" style="width: 48px; height: auto;">
+            <img src="img/icons/icon_projects.png" class="icon" id="buttonProjects" style="width: 48px; height: auto;">
+            <img src="img/icons/icon_users.png" class="icon" id="buttonUsers" style="width: 48px; height: auto;">
 
         </div>
     </div>
     <footer>
         <!-- Contenu paramétrable du footer -->
-        <div>© ANR Obardi 2023 </div>
+        <div>ANR Obardi 2020-2024</div>
+        
     </footer>
 </body>
 
 <script src="js/map_interaction.js"></script>
+<script src="js/actions.js"></script>
 
 <script type="module" src="lib/dist/dsfr.module.js"></script>
 <!-- <script src="dsfr/dist/dsfr.module.min.js"></script> -->

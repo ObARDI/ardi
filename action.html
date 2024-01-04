@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr" style="height: 100%;">
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mapstyle.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <title>Plateforme ARDI</title>
+
+</head>
+<body>
+    <header>
+        <!-- Contenu paramétrable du header -->
+        <div>Plateforme ARDI - ANR OBARDI</div>
+    </header>
+
+    <nav>
+        <!-- Contenu de la barre de navigation -->
+
+        <form action="URL_DU_TRAITEMENT" method="get">
+            <input type="text" name="query" id="search" placeholder="Effectuez une recherche sur ARDI">
+            <!-- <input type="submit" value="Rechercher"> -->
+        </form>
+
+        <div class="icon-bar">
+            <img src="img/icons/icon_database.png" class="icon" id="buttonDatabase" style="width: 48px; height: auto;">
+            <!-- <a href="action.html"> -->
+            <img src="img/icons/icon_map.png" class="icon" id="buttonMap" style="width: 48px; height: auto;">
+            <!-- </a> -->
+            <img src="img/icons/icon_dataviz.png" class="icon" id="buttonDatavis" style="width: 48px; height: auto;">
+            <img src="img/icons/icon_archives.png" class="icon" id="buttonArchives" style="width: 48px; height: auto;">
+            <img src="img/icons/icon_projects.png" class="icon" id="buttonProjects" style="width: 48px; height: auto;">
+            <img src="img/icons/icon_users.png" class="icon" id="buttonUsers" style="width: 48px; height: auto;">
+
+        </div>
+
+    </nav>
+
+    <div id="database_id"  class="div-cachee">
+        <ul>
+            <li>Carte de la sénéchaussée de Toulouse (1672-1690) produite le 21/01/2023 (.jpg)</li>
+            <li>Carte de la sénéchaussée de Toulouse (1672-1690), produite le 21/01/2023  (.svg)</li>
+            <li>Historique de la sénéchaussée de Toulouse (1229-1789) (.txt)</li>
+            <li>Sénéchaussée et cour présidiale de Toulouse et d'Albigeois (État des fonds, Archives départementales de la Haute-Garonne)</li>
+            <li>ADHG, 1 A 14  ff°17-90 (induction de la sénéchaussée de Toulouse), 1673 (.pdf)</li>
+            <li>ff°17-27, viguerie de Toulouse (.pdf)</li>
+            <li>ff°28-69, judicature de Villelongue (.pdf)</li>
+            <li>ff°70-90, judicature de Terrebasse (.pdf)</li>
+            <li>ADHG, BEP_MS 669  ff°18-91 (induction de la sénéchaussée de Toulouse), 1673 (.pdf)</li>
+            <li>ff°18-28, viguerie de Toulouse (.pdf)</li>
+            <li>ff°29-70, judicature de Villelongue (.pdf)</li>
+            <li>ff°71-91, judicature de Terrebasse (.pdf)</li>
+            <li>ressort_grande_maitrise_toulouse_ADHG_1_A_14 (1673) (.xlsx)</li>
+            <li>ressort_grande_maitrise_toulouse_BEP_MS 669 (1673) (.xlsx)</li>
+            <li>Synthèse automatique des données (.txt)</li>
+        </ul>
+    </div>
+
+    <div id="mapid" class="div-cachee"></div> <!-- Div pour la carte Leaflet -->
+    
+    <div id="dataviz_id" class="div-cachee">
+        <div id="scatter_area">
+
+        </div>
+    </div> 
+    
+    <div id="archives_id" class="div-cachee"></div>
+    
+    <div id="projects_id" class="div-cachee"></div>
+    
+    <div id="users_id" class="div-cachee"></div> 
+
+    <footer>
+        <!-- Contenu paramétrable du footer -->
+        <div>ANR Obardi 2023 </div>
+    </footer>
+</body>
+
+<script src="js/map_interaction.js"></script>
+<script src="js/actions.js"></script>
+<script type="module" src="lib/dist/dsfr.module.js"></script>
+<!-- <script src="dsfr/dist/dsfr.module.min.js"></script> -->
+<script src="lib/dist/dsfr.nomodule.js"></script>
+<!-- <script src="dsfr/dist/dsfr.nomodule.min.js"></script> -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<script>
+
+    // set the dimensions and margins of the graph
+    var margin = {top: 10, right: 40, bottom: 30, left: 30},
+        width = 450 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+    
+    // append the svg object to the body of the page
+    var svG = d3.select("#scatter_area")
+      .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
+    
+    // Create data
+    var data = [ {x:10, y:20}, {x:40, y:90}, {x:80, y:50} ]
+    
+    // X scale and Axis
+    var x = d3.scaleLinear()
+        .domain([0, 100])         // This is the min and the max of the data: 0 to 100 if percentages
+        .range([0, width]);       // This is the corresponding value I want in Pixel
+    svG
+      .append('g')
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+    
+    // X scale and Axis
+    var y = d3.scaleLinear()
+        .domain([0, 100])         // This is the min and the max of the data: 0 to 100 if percentages
+        .range([height, 0]);       // This is the corresponding value I want in Pixel
+    svG
+      .append('g')
+      .call(d3.axisLeft(y));
+    
+    // Add 3 dots for 0, 50 and 100%
+    svG
+      .selectAll("whatever")
+      .data(data)
+      .enter()
+      .append("circle")
+        .attr("cx", function(d){ return x(d.x) })
+        .attr("cy", function(d){ return y(d.y) })
+        .attr("r", 7)
+    
+    
+    </script>
+
+</html>
