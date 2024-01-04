@@ -1,4 +1,4 @@
-function imageClique(nomDiv) {
+function doAction(nomDiv) {
     // var nouvellePage = 'action.html';
     // window.open(nouvellePage, "_self");
 
@@ -20,27 +20,27 @@ function imageClique(nomDiv) {
 }
 
 document.getElementById("buttonDatabase").addEventListener("click", function() {
-    imageClique("database_id");
+    doAction("database_id");
 });
 
 document.getElementById("buttonMap").addEventListener("click", function() {
-    imageClique("mapid");
+    doAction("mapid");
     map.invalidateSize();
 
 });
 
 document.getElementById("buttonDatavis").addEventListener("click", function() {
-    imageClique("dataviz_id");
+    doAction("dataviz_id");
 });
 
 document.getElementById("buttonArchives").addEventListener("click", function() {
-    imageClique("archives_id");
+    doAction("archives_id");
 });
 
 document.getElementById("buttonProjects").addEventListener("click", function() {
-    imageClique("projects_id");
+    doAction("projects_id");
 });
 
 document.getElementById("buttonUsers").addEventListener("click", function() {
-    imageClique("users_id");
+    doAction("users_id");
 });

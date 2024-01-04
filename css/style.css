@@ -17,6 +17,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    height: 100px;
     z-index: 1; /* Pour s'assurer que l'en-tête est en avant-plan */
 }
 
@@ -37,6 +38,7 @@ header {
 
  /* Styles pour la barre de navigation */
 nav {
+    top:100px;
     background-color: #f0f0f0;
     color: white;
     text-align: center;
